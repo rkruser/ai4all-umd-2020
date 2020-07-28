@@ -6,6 +6,7 @@ Last edited by Kamal Gupta <kamalgupta308@gmail.com>
 """
 import traceback
 from flask import Flask, jsonify, request, render_template
+from flask_ngrok import run_with_ngrok
 
 from utils import read_file, transform_image, get_topk, render_prediction
 
@@ -54,4 +55,5 @@ def predict():
 
 
 if __name__ == '__main__':
+    run_with_ngrok(app)
     app.run()
