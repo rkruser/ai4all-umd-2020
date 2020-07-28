@@ -28,7 +28,7 @@ class ClassLoader(object):
 class LeafSnapLoader(Dataset):
     def __init__(self,csv_file='./leafsnap-dataset-images-augmented.txt',
         leafsnap_root='./data/leafsnap', 
-        source=['lab','field'],
+        source=['field'],#['lab','field'],
 #       class_file='./classes.txt',
         mode='train', # train | val | test | all
         transform=None):
@@ -49,7 +49,7 @@ class LeafSnapLoader(Dataset):
 
 #       self.classes = ClassLoader(class_file)
         
-        self.pil2tensor = transforms.ToTensor()
+        #self.pil2tensor = transforms.ToTensor()
         
     def __len__(self):
         return len(self.frames)
@@ -75,8 +75,8 @@ class LeafSnapLoader(Dataset):
             image = self.transform(image)
             segmented = self.transform(segmented)
 
-        image = self.pil2tensor(image)
-        segmented = self.pil2tensor(segmented)
+        #image = self.pil2tensor(image)
+        #segmented = self.pil2tensor(segmented)
         
         sample = {'file_id': file_id, 'species': species, 'species_index': species_index,
         'source': source, 'image': image, 'segmented': segmented}
