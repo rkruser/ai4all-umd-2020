@@ -57,7 +57,7 @@ class YourNetwork(nn.Module):
         # Conv4: batch_size x 512 x 1 x 1
         # Pool2: Can't apply
 
-        print(x.size())
+        #print(x.size())
          
         # Resize the tensor so that the linear layers can use it
         x = x.view(-1, 512*2*2) # Change

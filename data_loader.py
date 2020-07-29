@@ -23,6 +23,24 @@ class ClassLoader(object):
         return self.index2string[i]
 
 
+def leafsnap_collate_fn(sample_list):
+    merged = {
+                'file_id': [],
+                'species': [],
+                'species_index': [],
+                'source': [],
+                'image': [],
+                'segmented': []
+            }
+    for sample in sample_list:
+        for key in sample:
+            merged[key].append(sample[key])
+
+    merged['image'] = torch.stack(merged['image'])
+    merged['species_index'] = torch.LongTensor(merged['species_index'])
+
+    return merged
+
 
 
 class LeafSnapLoader(Dataset):
