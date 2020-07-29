@@ -1,46 +1,60 @@
+import torch # general PyTorch
+from torchvision import transforms # Image transforming library
+import torch.nn as nn # Neural network library
+from PIL import Image # Image class from python imaging library (PIL)
+import numpy as np
 
 
-class YourNetwork(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 64, 64)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(2, 32, 32)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
+# Redefine some useful functions from the previous colab
 
+# Print a list of tensors
+def print_tensors(tensor_list):
+  for t in tensor_list:
+    print(t.size(), '\n', t)
 
-    def forward(self, x):
-        pass
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
+to_tensor = transforms.ToTensor()
+to_pil = transforms.ToPILImage()
+resize600 = transforms.Resize(600)
+grayscale = transforms.Grayscale()
 
-import torch.optim as optim
+def apply_convolution(im_tensor, kernel, bias=None, stride=1, padding=0):
+  if len(kernel.size()) == 2:
+    kernel = kernel.unsqueeze(0).unsqueeze(0)
+  elif len(kernel.size()) == 3:
+    kernel = kernel.unsqueeze(0)
+  return nn.functional.conv2d(im_tensor.unsqueeze(0), kernel, bias=bias, stride=stride, padding=padding).squeeze(0)
 
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+def rescale(im_tensor, perc1 = 20, perc2 = 98):
+  numpy_tensor = im_tensor.numpy()
+  pc1 = np.percentile(numpy_tensor, perc1)
+  pc2 = np.percentile(numpy_tensor, perc2)
+  return ((im_tensor-pc1)/(pc2-pc1)).clamp(0,1)
 
-running_loss += loss.item()
-        if i % 2000 == 1999:    # print every 2000 mini-batches
-            print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
-            running_loss = 0.0
-        
-epochs = range(0,2)
-plt.plot(epochs, loss_train, 'g', label='Training loss')
-plt.title('Training loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
+  !mkdir webims
+!curl -o ./webims/puppy.jpg https://i.pinimg.com/474x/57/92/6a/57926a0d9ac21aa58e03e018087a21bb--german-shepherd-pups-shepherd-dogs.jpg
 
-print('Finished Training')
-#save the trained model
-PATH = './cifar_net.pth'
-torch.save(net.state_dict(), PATH
+puppy = Image.open('./webims/puppy.png')
+puppy = resize600(puppy) #Scale longest dimension down to 600 pixels
+puppy_tensor = to_tensor(grayscale(puppy))
+
+display(to_pil(puppy_tensor))
+display(to_pil(rescale(puppy_tensor,perc1=40,perc2=60)))
+
+vertical_kernel = torch.Tensor([[-1, 0, 1],
+                                [-2, 0, 2],
+                                [-1, 0, 1]])
+puppy_vertical_tensor = apply_convolution(puppy_tensor, vertical_kernel)
+puppy_vertical_tensor = rescale(puppy_vertical_tensor, perc1=20, perc2=98)
+display(to_pil(puppy_vertical_tensor))
+
+horizontal_kernel = torch.Tensor([[1, 2, 1],
+                                  [0, 0, 0],
+                                  [-1, -2, -1]])
+puppy_horizontal_tensor = apply_convolution(puppy_tensor, horizontal_kernel)
+puppy_horizontal_tensor = rescale(puppy_horizontal_tensor, perc1=20, perc2=98)
+display(to_pil(puppy_horizontal_tensor))
+
+blur_kernel = torch.ones(10,10)
+puppy_blur = apply_convolution(puppy_tensor, blur_kernel)
+puppy_blur = rescale(puppy_blur, perc1=0, perc2=100)
+display(to_pil(puppy_blur))
