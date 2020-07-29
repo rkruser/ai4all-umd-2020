@@ -1,3 +1,4 @@
+#importing libraries, functions, etc.
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -6,22 +7,25 @@ from torchvision.utils.data import Dataloader
 import torchvision.transforms as transforms
 import os
 import pickle
-
+import matplotlib.pyplot as plt
 from data_loader import LeafSnapLoader
 
+#defining the function to show the images later on in code when testing
 def imshow(img):
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
 
+#defining our training function
 def train(net, num_epochs=10, save_location='../drive/My\ Drive/models'):
-    transform = transforms.Compose([transforms.Resize((224,224)),transforms.ToTensor()])
-    leafsnap_train_dataset = LeafSnapLoader(mode='train')
-    leafsnap_val_dataset = LeafSnapLoader(mode='val')
-    leafsnap_test_dataset = LeafSnapLoader(mode='test')
+    transform = transforms.Compose([transforms.Resize((224,224)),transforms.ToTensor()]) #resize image and make it into a tensor
+    leafsnap_train_dataset = LeafSnapLoader(mode='train') #data is used for training purpose
+    leafsnap_val_dataset = LeafSnapLoader(mode='val') #data is used for validating purpose
+    leafsnap_test_dataset = LeafSnapLoader(mode='test') #data is used for testing purpose
 
-    leafsnap_train_loader = Dataloader(leafsnap_train_dataset, batch_size=64, shuffle=True)
+    #taking the data sets and giving them a batch size of 64
+    leafsnap_train_loader = Dataloader(leafsnap_train_dataset, batch_size=64, shuffle=True) 
     leafsnap_validate_loader = Dataloader(leafsnap_val_dataset, batch_size=64, shuffle=False)
     leafsnap_test_loader = Dataloader(leafsnap_test_dataset, batch_size=64, shuffle=False)
 
@@ -75,51 +79,54 @@ def train(net, num_epochs=10, save_location='../drive/My\ Drive/models'):
     print('Finished Training')
     
     
-    # At the end of training, run the model on the test set
-    dataiter = iter(leafsnap_test_loader)
-    images, labels = dataiter.next()
+# At the end of training, run the model on the test set
+dataiter = iter(leafsnap_test_loader)  #going through the data
+images, labels = dataiter.next()
 
-    imshow(torchvision.utils.make_grid(images)) # print images
-    print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
+imshow(torchvision.utils.make_grid(images)) # print images from test set
+print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
-    net = Net()
-    net.load_state_dict(torch.load(save_location))
+net = Net()
+net.load_state_dict(torch.load(save_location)) #extracting out saved model
 
-    outputs = net(images)
+outputs = net(images) #what the NN thinks the images are
 
-    _, predicted = torch.max(outputs, 1)
+#index of highest energy (how much the network thinks an image belongs to the class)
+_, predicted = torch.max(outputs, 1)
 
-    print('Predicted: ', ' '.join('%5s' % classes[predicted[j]]
-                              for j in range(4)))
-    
-    correct = 0
-    total = 0
-    with torch.no_grad():
-        for data in leafsnap_test_loader:
-            images, labels = data
-            outputs = net(images)
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
+print('Predicted: ', ' '.join('%5s' % classes[predicted[j]]
+                          for j in range(4)))
 
-    print('Accuracy of the network on the 10000 test images: %d %%' % (
-        100 * correct / total))
+#Accuracy of network as a whole
+correct = 0
+total = 0
+with torch.no_grad():
+    for data in leafsnap_test_loader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
 
-    class_correct = list(0. for i in range(10))
-    class_total = list(0. for i in range(10))
-    with torch.no_grad():
-        for data in leafsnap_test_loader:
-            images, labels = data
-            outputs = net(images)
-            _, predicted = torch.max(outputs, 1)
-            c = (predicted == labels).squeeze()
-            for i in range(4):
-                label = labels[i]
-                class_correct[label] += c[i].item()
-                class_total[label] += 1
+print('Accuracy of the network on the 10000 test images: %d %%' % (
+    100 * correct / total))
+
+#Accuracy by class
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+with torch.no_grad():
+    for data in leafsnap_test_loader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs, 1)
+        c = (predicted == labels).squeeze()
+        for i in range(4):
+            label = labels[i]
+            class_correct[label] += c[i].item()
+            class_total[label] += 1
 
 
-    for i in range(10):
-        print('Accuracy of %5s : %2d %%' % (
-            classes[i], 100 * class_correct[i] / class_total[i]))
+for i in range(10):
+    print('Accuracy of %5s : %2d %%' % (
+        classes[i], 100 * class_correct[i] / class_total[i]))
 
