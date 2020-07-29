@@ -2,8 +2,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.optim as optim
 import numpy as np
-from torchvision.utils.data import Dataloader
+from torch.utils.data import DataLoader
+Dataloader = DataLoader
 import torchvision.transforms as transforms
 import os
 import pickle
