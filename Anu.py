@@ -5,8 +5,6 @@ from PIL import Image # Image class from python imaging library (PIL)
 import numpy as np
 
 
-# Redefine some useful functions from the previous colab
-
 # Print a list of tensors
 def print_tensors(tensor_list):
   for t in tensor_list:
