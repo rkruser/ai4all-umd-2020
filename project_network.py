@@ -12,9 +12,11 @@ import torch.nn.functional as F
 # Should takes batches of 3x224x224 LeafSnap images and return batches of vectors of size 185 (the number of classifications in leafsnap)
 # Use the modules nn.Conv2d, nn.Linear, nn.ReLU, and other pytorch functions you deem necessary
 class YourNetwork(nn.Module):
-   def __init__(self):
+   def __init__(self, return_intermediates=False):
         super(YourNetwork, self).__init__()# Ask about
          
+        self.return_intermediates = return_intermediates # Return intermediate activations to visualize
+
         # Apply 4 convultions and 3 max pools
         self.conv1 = nn.Conv2d(3, 64, 5, 2) # Input channel, output channel, kernel size, stride
         # First max pool
@@ -45,9 +47,17 @@ class YourNetwork(nn.Module):
 
    def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))         # Call the max pools in terms of the applied convolutions
+
+        if self.return_intermediates:
+            inter1 = x
+
         #  Conv1: batch_size x 64 x 110 x 110
         #  Pool: (110-2+1)/1 = batch_size x 64 x 109 x 109
         x = self.pool(F.relu(self.conv2(x)))
+
+        if self.return_intermediates:
+            inter2 = x
+
         #  Conv2: (109-5+1)/2 = 52.5 --> 53   batch_size x 128 x 53 x 53
         #  Pool2: (53-2+1)/2 = 26    batch_size x 128 x 26 x 26
         x = self.pool(F.relu(self.conv3(x)))
@@ -69,4 +79,7 @@ class YourNetwork(nn.Module):
         x = self.linLay4(x)
       
         # Return the final tensor
-        return x
+        if self.return_intermediates:
+            return x, inter1, inter2
+        else:
+            return x
