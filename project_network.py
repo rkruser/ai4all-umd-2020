@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-resnet18 = models.resnet18(pretrained=False, num_classes=185) # A pre-defined neural network model to compare to
+#resnet18 = models.resnet18(pretrained=False, num_classes=185) # A pre-defined neural network model to compare to
 
 # round up: (input_size - kernel_size + 1 + 2*padding)/stride
 # Fill in your own convolutional neural network
