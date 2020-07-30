@@ -52,7 +52,10 @@ $(function() {
           $("#results-table").show();
           // loop through results, append to dom
           for (i = 0; i < data.length; i++) {
-            $("#results").append('<tr><td>'+data[i]['label']+'</td><td>'+data[i]['score']+'</td></tr>')
+            $("#results").append('<tr><td>' + data[i]['model'] + '</td><td>' +
+              data[i]['category'] + '</td><td>' +
+              data[i]['score'] + '</td><td>' +    
+              '<img src="data:image/jpeg;base64,'+data[i]["image"]+'" class="result-img"></td></tr>')
           };
         }
         else {
