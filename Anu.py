@@ -4,6 +4,22 @@ import torch.nn as nn # Neural network library
 from PIL import Image # Image class from python imaging library (PIL)
 import numpy as np
 
+def helper_function(img):
+  return convolve(img)
+
+from PIL import Image
+
+def your_function(image):
+  new_img = helper_function(image)
+  
+  return transformed_image
+
+def test_func():
+  image = Image.open('url to some file')
+  display(your_function(image))
+  
+test_func()
+
 def print_tensors(tensor_list):
   for t in tensor_list:
     print(t.size(), '\n', t)
