@@ -31,3 +31,5 @@ def test():
 
 #test()
 
+# To run the test in colaboratory, uncomment test(), then go to a code cell and type "run {your file name}.py"
+# Or comment out test(), and in a code cell run: "from {your file name without .py extension} import test" and "test()"
