@@ -16,6 +16,10 @@ import torchvision.transforms as transforms
 import torchvision.models as models
 import numpy as np
 
+import project_network as pnet
+import project_train as ptrain
+import data_loader
+
 from PIL import Image
 import requests
 from io import BytesIO
@@ -94,7 +98,7 @@ net_weights, _ = torch.load('./models/your_model/your_model_49.pth',map_location
 your_net.load_state_dict(net_weights)
 your_net.eval()
 leaf_species_name_mapping = ClassLoader()
-downsize = transforms.Resize(30)
+downsize = transforms.Resize(60)
 
 # Need to return a list of dictionaries with keys 'model', 'label', 'score', 'image'
 # Ryen will write this function and get back to you
@@ -119,11 +123,12 @@ def collect_outputs(input_pil_image):
     species_name = leaf_species_name_mapping.ind2str(idx)
     species_dir = os.path.join('./data/leafsnap/dataset/images/field/',species_name)
     species_file = os.listdir(species_dir)[0]
+    species_file = os.path.join(species_dir, species_file)
     your_net_results.append({
         "model": "Your Network Trained on Leafsnap",
         "category": species_name,
         "score": str(value),
-        "image": None #to_base64(downsize(Image.open(species_file)))
+        "image": to_base64(downsize(Image.open(species_file)))
     })
 
   # In place of "None", write
@@ -172,4 +177,3 @@ def collect_outputs(input_pil_image):
   all_results = image_net_results + your_net_results + student_image_transforms
 
   return all_results
-  
