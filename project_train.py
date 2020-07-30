@@ -113,10 +113,11 @@ def test(net, device='cpu'):
     correct = 0
     total = 0
     with torch.no_grad():
-        for data in leafsnap_test_loader:
+        for i,data in enumerate(leafsnap_test_loader):
+            print("Test batch {0} of {1}".format(i, len(leafsnap_test_loader)))
             images, labels = data['image'].to(device), data['species_index'].to(device)
             outputs = net(images) # batch_size x 185
-            _, predicted = torch.max(outputs.data, 1)
+            _, predicted = torch.max(outputs, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
