@@ -4,9 +4,8 @@ import torch.nn as nn # Neural network library
 from PIL import Image # Image class from python imaging library (PIL)
 import numpy as np
 
-def print_tensors(tensor_list):
-  for t in tensor_list:
-    print(t.size(), '\n', t)
+to_pil = transforms.ToPILImage()
+
 
 def apply_convolution(im_tensor, kernel, bias=None, stride=1, padding=0, color=False):
   if len(kernel.size()) == 2:
@@ -29,8 +28,6 @@ transform = transforms.Compose([
     transforms.Resize(600),
     transforms.ToTensor()                            
 ])
-to_pil = transforms.ToPILImage()
-
 im_tensor = transform(im)
 
 
@@ -44,12 +41,12 @@ vertical_kernel = torch.Tensor([[[-1, 0, 1],
 
 im_vertical_tensor = apply_convolution(im_tensor, vertical_kernel,color=True)
 im_vertical_tensor = im_vertical_tensor.clamp(0,1)
-display(to_pil(im_vertical_tensor))
+#display(to_pil(im_vertical_tensor))
 
 blur_kernel = torch.ones(10,10)
 im_blur = apply_convolution(im_vertical_tensor, blur_kernel)
 im_blur = rescale(im_blur, perc1=0, perc2=100)
-display(to_pil(im_blur))
+#display(to_pil(im_blur))
 
 sliced_image=im_blur[:,:,:]
 zeros = torch.zeros(sliced_image.size()[1:])
