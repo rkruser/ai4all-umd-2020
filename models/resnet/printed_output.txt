@@ -1,0 +1,505 @@
+Options selected: Namespace(augment=False, gpuid=0, load_from=None, nepochs=50, resnet=True, save_location='./models/resnet/', start_epoch=0, stats_file=None, train=True, view_stats=False)
+Device: cuda:0
+Train dataset length 6166
+Validation dataset length 801
+[0,    10] loss: 4.998
+[0,    20] loss: 4.637
+[0,    30] loss: 4.123
+[0,    40] loss: 4.051
+[0,    50] loss: 3.749
+[0,    60] loss: 3.583
+[0,    70] loss: 3.411
+[0,    80] loss: 3.367
+[0,    90] loss: 3.176
+Accuracy of the network on the validation set: 9 %
+[1,    10] loss: 2.962
+[1,    20] loss: 2.801
+[1,    30] loss: 2.741
+[1,    40] loss: 2.687
+[1,    50] loss: 2.554
+[1,    60] loss: 2.543
+[1,    70] loss: 2.462
+[1,    80] loss: 2.390
+[1,    90] loss: 2.271
+Accuracy of the network on the validation set: 33 %
+[2,    10] loss: 2.113
+[2,    20] loss: 2.172
+[2,    30] loss: 2.066
+[2,    40] loss: 2.126
+[2,    50] loss: 1.985
+[2,    60] loss: 1.993
+[2,    70] loss: 1.828
+[2,    80] loss: 1.802
+[2,    90] loss: 1.882
+Accuracy of the network on the validation set: 20 %
+[3,    10] loss: 1.752
+[3,    20] loss: 1.652
+[3,    30] loss: 1.660
+[3,    40] loss: 1.652
+[3,    50] loss: 1.560
+[3,    60] loss: 1.529
+[3,    70] loss: 1.557
+[3,    80] loss: 1.509
+[3,    90] loss: 1.531
+Accuracy of the network on the validation set: 45 %
+[4,    10] loss: 1.390
+[4,    20] loss: 1.413
+[4,    30] loss: 1.361
+[4,    40] loss: 1.252
+[4,    50] loss: 1.269
+[4,    60] loss: 1.364
+[4,    70] loss: 1.274
+[4,    80] loss: 1.372
+[4,    90] loss: 1.228
+Accuracy of the network on the validation set: 45 %
+[5,    10] loss: 1.164
+[5,    20] loss: 1.183
+[5,    30] loss: 1.123
+[5,    40] loss: 1.157
+[5,    50] loss: 1.053
+[5,    60] loss: 1.141
+[5,    70] loss: 1.001
+[5,    80] loss: 1.011
+[5,    90] loss: 0.974
+Accuracy of the network on the validation set: 32 %
+[6,    10] loss: 0.938
+[6,    20] loss: 0.953
+[6,    30] loss: 0.909
+[6,    40] loss: 0.909
+[6,    50] loss: 0.933
+[6,    60] loss: 1.011
+[6,    70] loss: 0.907
+[6,    80] loss: 0.917
+[6,    90] loss: 0.925
+Accuracy of the network on the validation set: 40 %
+[7,    10] loss: 0.957
+[7,    20] loss: 0.861
+[7,    30] loss: 0.856
+[7,    40] loss: 0.803
+[7,    50] loss: 0.806
+[7,    60] loss: 0.788
+[7,    70] loss: 0.778
+[7,    80] loss: 0.734
+[7,    90] loss: 0.743
+Accuracy of the network on the validation set: 29 %
+[8,    10] loss: 0.732
+[8,    20] loss: 0.707
+[8,    30] loss: 0.659
+[8,    40] loss: 0.603
+[8,    50] loss: 0.703
+[8,    60] loss: 0.707
+[8,    70] loss: 0.644
+[8,    80] loss: 0.686
+[8,    90] loss: 0.658
+Accuracy of the network on the validation set: 62 %
+[9,    10] loss: 0.612
+[9,    20] loss: 0.577
+[9,    30] loss: 0.545
+[9,    40] loss: 0.531
+[9,    50] loss: 0.541
+[9,    60] loss: 0.595
+[9,    70] loss: 0.534
+[9,    80] loss: 0.554
+[9,    90] loss: 0.614
+Accuracy of the network on the validation set: 43 %
+[10,    10] loss: 0.571
+[10,    20] loss: 0.566
+[10,    30] loss: 0.491
+[10,    40] loss: 0.500
+[10,    50] loss: 0.503
+[10,    60] loss: 0.488
+[10,    70] loss: 0.478
+[10,    80] loss: 0.538
+[10,    90] loss: 0.522
+Accuracy of the network on the validation set: 65 %
+[11,    10] loss: 0.448
+[11,    20] loss: 0.434
+[11,    30] loss: 0.421
+[11,    40] loss: 0.428
+[11,    50] loss: 0.424
+[11,    60] loss: 0.440
+[11,    70] loss: 0.473
+[11,    80] loss: 0.470
+[11,    90] loss: 0.446
+Accuracy of the network on the validation set: 60 %
+[12,    10] loss: 0.366
+[12,    20] loss: 0.464
+[12,    30] loss: 0.339
+[12,    40] loss: 0.423
+[12,    50] loss: 0.340
+[12,    60] loss: 0.359
+[12,    70] loss: 0.382
+[12,    80] loss: 0.398
+[12,    90] loss: 0.411
+Accuracy of the network on the validation set: 66 %
+[13,    10] loss: 0.314
+[13,    20] loss: 0.355
+[13,    30] loss: 0.333
+[13,    40] loss: 0.317
+[13,    50] loss: 0.302
+[13,    60] loss: 0.331
+[13,    70] loss: 0.322
+[13,    80] loss: 0.348
+[13,    90] loss: 0.394
+Accuracy of the network on the validation set: 58 %
+[14,    10] loss: 0.299
+[14,    20] loss: 0.284
+[14,    30] loss: 0.290
+[14,    40] loss: 0.260
+[14,    50] loss: 0.259
+[14,    60] loss: 0.284
+[14,    70] loss: 0.269
+[14,    80] loss: 0.277
+[14,    90] loss: 0.282
+Accuracy of the network on the validation set: 58 %
+[15,    10] loss: 0.219
+[15,    20] loss: 0.267
+[15,    30] loss: 0.257
+[15,    40] loss: 0.229
+[15,    50] loss: 0.235
+[15,    60] loss: 0.259
+[15,    70] loss: 0.278
+[15,    80] loss: 0.227
+[15,    90] loss: 0.283
+Accuracy of the network on the validation set: 51 %
+[16,    10] loss: 0.258
+[16,    20] loss: 0.221
+[16,    30] loss: 0.247
+[16,    40] loss: 0.230
+[16,    50] loss: 0.250
+[16,    60] loss: 0.231
+[16,    70] loss: 0.209
+[16,    80] loss: 0.252
+[16,    90] loss: 0.248
+Accuracy of the network on the validation set: 51 %
+[17,    10] loss: 0.208
+[17,    20] loss: 0.234
+[17,    30] loss: 0.241
+[17,    40] loss: 0.215
+[17,    50] loss: 0.240
+[17,    60] loss: 0.217
+[17,    70] loss: 0.250
+[17,    80] loss: 0.269
+[17,    90] loss: 0.219
+Accuracy of the network on the validation set: 68 %
+[18,    10] loss: 0.189
+[18,    20] loss: 0.174
+[18,    30] loss: 0.188
+[18,    40] loss: 0.183
+[18,    50] loss: 0.149
+[18,    60] loss: 0.205
+[18,    70] loss: 0.155
+[18,    80] loss: 0.187
+[18,    90] loss: 0.200
+Accuracy of the network on the validation set: 79 %
+[19,    10] loss: 0.212
+[19,    20] loss: 0.190
+[19,    30] loss: 0.167
+[19,    40] loss: 0.154
+[19,    50] loss: 0.128
+[19,    60] loss: 0.156
+[19,    70] loss: 0.158
+[19,    80] loss: 0.147
+[19,    90] loss: 0.143
+Accuracy of the network on the validation set: 50 %
+[20,    10] loss: 0.173
+[20,    20] loss: 0.159
+[20,    30] loss: 0.133
+[20,    40] loss: 0.134
+[20,    50] loss: 0.174
+[20,    60] loss: 0.175
+[20,    70] loss: 0.155
+[20,    80] loss: 0.153
+[20,    90] loss: 0.149
+Accuracy of the network on the validation set: 70 %
+[21,    10] loss: 0.112
+[21,    20] loss: 0.130
+[21,    30] loss: 0.144
+[21,    40] loss: 0.138
+[21,    50] loss: 0.143
+[21,    60] loss: 0.135
+[21,    70] loss: 0.131
+[21,    80] loss: 0.116
+[21,    90] loss: 0.154
+Accuracy of the network on the validation set: 63 %
+[22,    10] loss: 0.186
+[22,    20] loss: 0.180
+[22,    30] loss: 0.186
+[22,    40] loss: 0.183
+[22,    50] loss: 0.152
+[22,    60] loss: 0.146
+[22,    70] loss: 0.139
+[22,    80] loss: 0.171
+[22,    90] loss: 0.169
+Accuracy of the network on the validation set: 72 %
+[23,    10] loss: 0.203
+[23,    20] loss: 0.204
+[23,    30] loss: 0.192
+[23,    40] loss: 0.173
+[23,    50] loss: 0.143
+[23,    60] loss: 0.165
+[23,    70] loss: 0.129
+[23,    80] loss: 0.141
+[23,    90] loss: 0.134
+Accuracy of the network on the validation set: 68 %
+[24,    10] loss: 0.149
+[24,    20] loss: 0.132
+[24,    30] loss: 0.142
+[24,    40] loss: 0.155
+[24,    50] loss: 0.139
+[24,    60] loss: 0.144
+[24,    70] loss: 0.183
+[24,    80] loss: 0.145
+[24,    90] loss: 0.122
+Accuracy of the network on the validation set: 77 %
+[25,    10] loss: 0.134
+[25,    20] loss: 0.135
+[25,    30] loss: 0.136
+[25,    40] loss: 0.119
+[25,    50] loss: 0.109
+[25,    60] loss: 0.110
+[25,    70] loss: 0.097
+[25,    80] loss: 0.125
+[25,    90] loss: 0.103
+Accuracy of the network on the validation set: 65 %
+[26,    10] loss: 0.141
+[26,    20] loss: 0.131
+[26,    30] loss: 0.125
+[26,    40] loss: 0.123
+[26,    50] loss: 0.116
+[26,    60] loss: 0.095
+[26,    70] loss: 0.130
+[26,    80] loss: 0.128
+[26,    90] loss: 0.139
+Accuracy of the network on the validation set: 72 %
+[27,    10] loss: 0.112
+[27,    20] loss: 0.085
+[27,    30] loss: 0.094
+[27,    40] loss: 0.100
+[27,    50] loss: 0.109
+[27,    60] loss: 0.086
+[27,    70] loss: 0.080
+[27,    80] loss: 0.114
+[27,    90] loss: 0.102
+Accuracy of the network on the validation set: 74 %
+[28,    10] loss: 0.079
+[28,    20] loss: 0.099
+[28,    30] loss: 0.081
+[28,    40] loss: 0.108
+[28,    50] loss: 0.076
+[28,    60] loss: 0.079
+[28,    70] loss: 0.066
+[28,    80] loss: 0.091
+[28,    90] loss: 0.083
+Accuracy of the network on the validation set: 61 %
+[29,    10] loss: 0.132
+[29,    20] loss: 0.102
+[29,    30] loss: 0.144
+[29,    40] loss: 0.135
+[29,    50] loss: 0.130
+[29,    60] loss: 0.152
+[29,    70] loss: 0.145
+[29,    80] loss: 0.128
+[29,    90] loss: 0.119
+Accuracy of the network on the validation set: 58 %
+[30,    10] loss: 0.115
+[30,    20] loss: 0.125
+[30,    30] loss: 0.116
+[30,    40] loss: 0.133
+[30,    50] loss: 0.132
+[30,    60] loss: 0.164
+[30,    70] loss: 0.126
+[30,    80] loss: 0.157
+[30,    90] loss: 0.165
+Accuracy of the network on the validation set: 63 %
+[31,    10] loss: 0.145
+[31,    20] loss: 0.162
+[31,    30] loss: 0.166
+[31,    40] loss: 0.168
+[31,    50] loss: 0.143
+[31,    60] loss: 0.147
+[31,    70] loss: 0.150
+[31,    80] loss: 0.143
+[31,    90] loss: 0.175
+Accuracy of the network on the validation set: 57 %
+[32,    10] loss: 0.133
+[32,    20] loss: 0.138
+[32,    30] loss: 0.150
+[32,    40] loss: 0.129
+[32,    50] loss: 0.118
+[32,    60] loss: 0.128
+[32,    70] loss: 0.124
+[32,    80] loss: 0.107
+[32,    90] loss: 0.100
+Accuracy of the network on the validation set: 61 %
+[33,    10] loss: 0.084
+[33,    20] loss: 0.097
+[33,    30] loss: 0.089
+[33,    40] loss: 0.101
+[33,    50] loss: 0.089
+[33,    60] loss: 0.082
+[33,    70] loss: 0.125
+[33,    80] loss: 0.125
+[33,    90] loss: 0.110
+Accuracy of the network on the validation set: 73 %
+[34,    10] loss: 0.107
+[34,    20] loss: 0.128
+[34,    30] loss: 0.121
+[34,    40] loss: 0.124
+[34,    50] loss: 0.101
+[34,    60] loss: 0.078
+[34,    70] loss: 0.131
+[34,    80] loss: 0.080
+[34,    90] loss: 0.085
+Accuracy of the network on the validation set: 75 %
+[35,    10] loss: 0.070
+[35,    20] loss: 0.090
+[35,    30] loss: 0.058
+[35,    40] loss: 0.068
+[35,    50] loss: 0.100
+[35,    60] loss: 0.075
+[35,    70] loss: 0.076
+[35,    80] loss: 0.097
+[35,    90] loss: 0.120
+Accuracy of the network on the validation set: 76 %
+[36,    10] loss: 0.099
+[36,    20] loss: 0.144
+[36,    30] loss: 0.121
+[36,    40] loss: 0.122
+[36,    50] loss: 0.114
+[36,    60] loss: 0.109
+[36,    70] loss: 0.090
+[36,    80] loss: 0.097
+[36,    90] loss: 0.092
+Accuracy of the network on the validation set: 71 %
+[37,    10] loss: 0.097
+[37,    20] loss: 0.128
+[37,    30] loss: 0.136
+[37,    40] loss: 0.117
+[37,    50] loss: 0.124
+[37,    60] loss: 0.131
+[37,    70] loss: 0.146
+[37,    80] loss: 0.117
+[37,    90] loss: 0.132
+Accuracy of the network on the validation set: 67 %
+[38,    10] loss: 0.107
+[38,    20] loss: 0.133
+[38,    30] loss: 0.104
+[38,    40] loss: 0.089
+[38,    50] loss: 0.106
+[38,    60] loss: 0.106
+[38,    70] loss: 0.091
+[38,    80] loss: 0.123
+[38,    90] loss: 0.126
+Accuracy of the network on the validation set: 75 %
+[39,    10] loss: 0.120
+[39,    20] loss: 0.145
+[39,    30] loss: 0.097
+[39,    40] loss: 0.085
+[39,    50] loss: 0.095
+[39,    60] loss: 0.109
+[39,    70] loss: 0.095
+[39,    80] loss: 0.101
+[39,    90] loss: 0.081
+Accuracy of the network on the validation set: 78 %
+[40,    10] loss: 0.118
+[40,    20] loss: 0.117
+[40,    30] loss: 0.106
+[40,    40] loss: 0.073
+[40,    50] loss: 0.091
+[40,    60] loss: 0.097
+[40,    70] loss: 0.082
+[40,    80] loss: 0.113
+[40,    90] loss: 0.113
+Accuracy of the network on the validation set: 64 %
+[41,    10] loss: 0.126
+[41,    20] loss: 0.103
+[41,    30] loss: 0.130
+[41,    40] loss: 0.111
+[41,    50] loss: 0.101
+[41,    60] loss: 0.088
+[41,    70] loss: 0.082
+[41,    80] loss: 0.089
+[41,    90] loss: 0.064
+Accuracy of the network on the validation set: 77 %
+[42,    10] loss: 0.091
+[42,    20] loss: 0.076
+[42,    30] loss: 0.081
+[42,    40] loss: 0.056
+[42,    50] loss: 0.085
+[42,    60] loss: 0.067
+[42,    70] loss: 0.086
+[42,    80] loss: 0.077
+[42,    90] loss: 0.093
+Accuracy of the network on the validation set: 76 %
+[43,    10] loss: 0.080
+[43,    20] loss: 0.086
+[43,    30] loss: 0.126
+[43,    40] loss: 0.110
+[43,    50] loss: 0.135
+[43,    60] loss: 0.107
+[43,    70] loss: 0.103
+[43,    80] loss: 0.120
+[43,    90] loss: 0.116
+Accuracy of the network on the validation set: 71 %
+[44,    10] loss: 0.161
+[44,    20] loss: 0.183
+[44,    30] loss: 0.150
+[44,    40] loss: 0.181
+[44,    50] loss: 0.173
+[44,    60] loss: 0.143
+[44,    70] loss: 0.139
+[44,    80] loss: 0.142
+[44,    90] loss: 0.151
+Accuracy of the network on the validation set: 68 %
+[45,    10] loss: 0.183
+[45,    20] loss: 0.173
+[45,    30] loss: 0.151
+[45,    40] loss: 0.131
+[45,    50] loss: 0.150
+[45,    60] loss: 0.149
+[45,    70] loss: 0.117
+[45,    80] loss: 0.118
+[45,    90] loss: 0.100
+Accuracy of the network on the validation set: 48 %
+[46,    10] loss: 0.089
+[46,    20] loss: 0.072
+[46,    30] loss: 0.084
+[46,    40] loss: 0.080
+[46,    50] loss: 0.080
+[46,    60] loss: 0.062
+[46,    70] loss: 0.081
+[46,    80] loss: 0.063
+[46,    90] loss: 0.069
+Accuracy of the network on the validation set: 82 %
+[47,    10] loss: 0.060
+[47,    20] loss: 0.064
+[47,    30] loss: 0.060
+[47,    40] loss: 0.065
+[47,    50] loss: 0.068
+[47,    60] loss: 0.078
+[47,    70] loss: 0.061
+[47,    80] loss: 0.065
+[47,    90] loss: 0.053
+Accuracy of the network on the validation set: 84 %
+[48,    10] loss: 0.052
+[48,    20] loss: 0.067
+[48,    30] loss: 0.046
+[48,    40] loss: 0.045
+[48,    50] loss: 0.048
+[48,    60] loss: 0.054
+[48,    70] loss: 0.060
+[48,    80] loss: 0.067
+[48,    90] loss: 0.052
+Accuracy of the network on the validation set: 84 %
+[49,    10] loss: 0.050
+[49,    20] loss: 0.057
+[49,    30] loss: 0.058
+[49,    40] loss: 0.043
+[49,    50] loss: 0.044
+[49,    60] loss: 0.055
+[49,    70] loss: 0.058
+[49,    80] loss: 0.039
+[49,    90] loss: 0.056
+Accuracy of the network on the validation set: 84 %
+Finished Training
