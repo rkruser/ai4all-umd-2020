@@ -18,14 +18,12 @@ def rescale(im_tensor, perc1 = 20, perc2 = 98):
   return ((im_tensor-pc1)/(pc2-pc1)).clamp(0,1)
 
 def emily_function(im):
-  
   transform = transforms.Compose([
       transforms.Resize(600),
       transforms.ToTensor()                            
   ])
   to_pil = transforms.ToPILImage()
   im_tensor = transform(im)
-
 
   vertical_kernel = torch.Tensor([[[-1, 0, 1],
                                   [-2, 0, 2],
@@ -46,9 +44,10 @@ def emily_function(im):
   zeros = torch.zeros(sliced_image.size()[1:])
   red_slice = sliced_image[0,:,:]
   red_slice = torch.stack([red_slice, zeros, zeros])
-  display(to_pil(red_slice))
+  #display(to_pil(red_slice))
+  return to_pil(red_slice)
 
-!mkdir webims
-!curl -o ./webims/image.jpg https://static01.nyt.com/images/2020/04/22/arts/22kimmelman-skyscrapers1/22kimmelman-skyscrapers1-videoSixteenByNineJumbo1600.jpg 
-im = Image.open('./webims/image.jpg')
-emily_function(im)
+#!mkdir webims
+#!curl -o ./webims/image.jpg https://static01.nyt.com/images/2020/04/22/arts/22kimmelman-skyscrapers1/22kimmelman-skyscrapers1-videoSixteenByNineJumbo1600.jpg 
+#im = Image.open('./webims/image.jpg')
+#emily_function(im)

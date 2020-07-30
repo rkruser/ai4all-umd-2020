@@ -43,9 +43,10 @@ def portiaImP(im):
     # Place the cat image onto the base image
     imBig.paste(to_pil(imSmallTensor),(number1, number2))
 
-  display(imBig)
+  #display(imBig)
+  return imBig
 
-!mkdir webims
-!curl -o ./webims/image.jpg https://www.peta.org/wp-content/uploads/2014/01/goldfish-sxc.hu_.jpg
-im = Image.open('./webims/image.jpg')
+#!mkdir webims
+#!curl -o ./webims/image.jpg https://www.peta.org/wp-content/uploads/2014/01/goldfish-sxc.hu_.jpg
+#im = Image.open('./webims/image.jpg')
 portiaImP(im)
