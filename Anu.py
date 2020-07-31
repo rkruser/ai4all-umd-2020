@@ -4,8 +4,6 @@ import torch.nn as nn # Neural network library
 from PIL import Image # Image class from python imaging library (PIL)
 import numpy as np
 
-def Anu_transform(img):
-    tensor_transform = transforms.Compose([
 
 def print_tensors(tensor_list):
   for t in tensor_list:
@@ -28,9 +26,15 @@ def rescale(im_tensor, perc1 = 20, perc2 = 98):
   pc1 = np.percentile(numpy_tensor, perc1)
   pc2 = np.percentile(numpy_tensor, perc2)
   return ((im_tensor-pc1)/(pc2-pc1)).clamp(0,1)
- ])
-
-    im_tensor = tensor_transform(img)
+ ])    
+    
+    def Anu_function(im):
+  transform = transforms.Compose([
+      transforms.Resize(600),
+      transforms.ToTensor()                            
+  ])
+  to_pil = transforms.ToPILImage()
+  im_tensor = transform(im)
   
 !mkdir webims
 !curl -o ./webims/puppy.jpg https://i.pinimg.com/474x/57/92/6a/57926a0d9ac21aa58e03e018087a21bb--german-shepherd-pups-shepherd-dogs.jpg
@@ -45,31 +49,31 @@ im_puppy_tensor = to_tensor(grayscale(im_puppy))
 display(to_pil(im_puppy_tensor))
 display(to_pil(rescale(im_puppy_tensor,perc1=40,perc2=60)))
 
-to_pil = transforms.ToPILImage()
+#to_pil = transforms.ToPILImage()
 
-vertical_kernel = torch.Tensor([[-1, 0, 1],
-                                [-2, 0, 2],
-                                [-1, 0, 1]])
-im_puppy_vertical_tensor = apply_convolution(im_puppy_tensor, vertical_kernel)
-im_puppy_vertical_tensor = rescale(im_puppy_vertical_tensor, perc1=20, perc2=98)
-display(to_pil(im_puppy_vertical_tensor))
+#vertical_kernel = torch.Tensor([[-1, 0, 1],
+                               # [-2, 0, 2],
+                         #       [-1, 0, 1]])
+#im_puppy_vertical_tensor = apply_convolution(im_puppy_tensor, vertical_kernel)
+#im_puppy_vertical_tensor = rescale(im_puppy_vertical_tensor, perc1=20, perc2=98)
+#display(to_pil(im_puppy_vertical_tensor))
 
-return to_pil(im_tensor)
+#return to_pil(im_tensor)
 
-horizontal_kernel = torch.Tensor([[1, 2, 1],
-                                  [0, 0, 0],
-                                  [-1, -2, -1]])
-im_puppy_horizontal_tensor = apply_convolution(im_puppy_tensor, horizontal_kernel)
-im_puppy_horizontal_tensor = rescale(im_puppy_horizontal_tensor, perc1=20, perc2=98)
-display(to_pil(im_puppy_horizontal_tensor))
+#horizontal_kernel = torch.Tensor([[1, 2, 1],
+                                #  [0, 0, 0],
+                                #  [-1, -2, -1]])
+#im_puppy_horizontal_tensor = apply_convolution(im_puppy_tensor, horizontal_kernel)
+#im_puppy_horizontal_tensor = rescale(im_puppy_horizontal_tensor, perc1=20, perc2=98)
+#display(to_pil(im_puppy_horizontal_tensor))
 
-blur_kernel = torch.ones(10,10)
-im_puppy_blur = apply_convolution(im_puppy_tensor, blur_kernel)
-im_puppy_blur = rescale(im_puppy_blur, perc1=0, perc2=100)
-display(to_pil(im_puppy_blur))
+#blur_kernel = torch.ones(10,10)
+#im_puppy_blur = apply_convolution(im_puppy_tensor, blur_kernel)
+#im_puppy_blur = rescale(im_puppy_blur, perc1=0, perc2=100)
+#display(to_pil(im_puppy_blur))
 
 def test():
-    img = Image.open('/path/to/image.jpg')
+    img = Image.open('./webims/puppy.jpg')
 
     transformed = Anu_transform(img)
 
