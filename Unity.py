@@ -47,7 +47,8 @@ def Unity_function(im):
   #display(to_pil(blue_slice))
   return to_pil(blue_slice)
 
-#!mkdir webims
-#!curl -o ./webims/image.jpg https://static01.nyt.com/images/2020/04/22/arts/22kimmelman-skyscrapers1/22kimmelman-skyscrapers1-videoSixteenByNineJumbo1600.jpg 
-#im = Image.open('./webims/image.jpg')
-#Unity_function(im)
+!mkdir webims
+!curl -o ./webims/image.jpg https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
+
+im = Image.open('./webims/image.jpg')
+Unity_function(im)
