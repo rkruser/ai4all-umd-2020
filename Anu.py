@@ -26,7 +26,6 @@ def rescale(im_tensor, perc1 = 20, perc2 = 98):
   pc1 = np.percentile(numpy_tensor, perc1)
   pc2 = np.percentile(numpy_tensor, perc2)
   return ((im_tensor-pc1)/(pc2-pc1)).clamp(0,1)
- ])    
     
 def Anu_function(im):
   transform = transforms.Compose([
