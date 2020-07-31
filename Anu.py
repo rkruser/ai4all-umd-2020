@@ -28,26 +28,30 @@ def rescale(im_tensor, perc1 = 20, perc2 = 98):
   return ((im_tensor-pc1)/(pc2-pc1)).clamp(0,1)
  ])    
     
-    def Anu_function(im):
+def Anu_function(im):
   transform = transforms.Compose([
       transforms.Resize(600),
+      transforms.Grayscale(),
       transforms.ToTensor()                            
   ])
   to_pil = transforms.ToPILImage()
   im_tensor = transform(im)
+  im_tensor = rescale(im_tensor,perc1=40,perc2=60)
   
-!mkdir webims
-!curl -o ./webims/puppy.jpg https://i.pinimg.com/474x/57/92/6a/57926a0d9ac21aa58e03e018087a21bb--german-shepherd-pups-shepherd-dogs.jpg
+  return to_pil(im_tensor)
+  
+#!mkdir webims
+#!curl -o ./webims/puppy.jpg https://i.pinimg.com/474x/57/92/6a/57926a0d9ac21aa58e03e018087a21bb--german-shepherd-pups-shepherd-dogs.jpg
 
-im_puppy = Image.open('./webims/puppy.jpg')
-resize600= transforms.Resize(600)
-im_puppy = resize600(im_puppy) #Scale longest dimension down to 600 pixels
-to_tensor= transforms.ToTensor()
-im_puppy_tensor = to_tensor(grayscale(im_puppy))
+#im_puppy = Image.open('./webims/puppy.jpg')
+#resize600= transforms.Resize(600)
+#im_puppy = resize600(im_puppy) #Scale longest dimension down to 600 pixels
+#to_tensor= transforms.ToTensor()
+#im_puppy_tensor = to_tensor(grayscale(im_puppy))
 
 
-display(to_pil(im_puppy_tensor))
-display(to_pil(rescale(im_puppy_tensor,perc1=40,perc2=60)))
+#display(to_pil(im_puppy_tensor))
+#display(to_pil(rescale(im_puppy_tensor,perc1=40,perc2=60)))
 
 #to_pil = transforms.ToPILImage()
 
